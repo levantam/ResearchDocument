@@ -28,5 +28,11 @@ npm install redux-saga
 
 #### Create reducers:
 
+* Create the new file: user-redu
+
+#### Store
+
+#### Configure store for index.js
+
 
 
