@@ -3,3 +3,6 @@ height: 70px;
 background: green;
 color: white;
 }
+.page-inner{
+max-width: 100%;
+}
