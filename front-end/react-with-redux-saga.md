@@ -1,4 +1,4 @@
-#### DEMO - CREATE APPLICATION USING REACT, REDUX, SAGA
+# DEMO - CREATE APPLICATION USING REACT, REDUX, SAGA
 
 #### Init project and Install library
 
@@ -23,12 +23,10 @@ npm install react-redux @types/react-redux
 * Install redux-saga 
 
 ```
-npm install redux-saga 
+npm install redux-saga
 ```
 
-#### Reducer
-
-
+#### Create reducers:
 
 
 
