@@ -1,4 +1,13 @@
-# RESEARCH DOCUMENT - BY @tamle
+# RESEARCH DOCUMENT
 
-![](https://camo.githubusercontent.com/f3c08eee54ceab284b6724493e68d24205874765/687474703a2f2f6c7563616d657a7a616c6972612e66696c65732e776f726470726573732e636f6d2f323031342f30332f73637265656e2d73686f742d323031342d30332d30382d61742d32332d30372d3336312e706e673f773d36353026683d323330)
+## About me:
+
+| Name | Tam Le |
+| :--- | :--- |
+| Title | Software Developer |
+| Location | Vietnam |
+| Email | vantamck2@gmail.com |
+| Current company | KMS Technology Vietnam |
+
+
 
