@@ -4,25 +4,25 @@ _**GITBOOK **is the best tool to create your documentation as I use it for write
 
 #### INIT PROJECT
 
-* Install gitbook
+* **Install gitbook**
 
 ```
 npm install gitbook-cli -g
 ```
 
-* Init project
+* **Init project**
 
 ```
 gitbook init
 ```
 
-* Run project
+* **Run project**
 
 ```
 gitbook serve
 ```
 
-* Build project
+* **Build project**
 
 ```
 gitbook build
@@ -30,7 +30,7 @@ gitbook build
 
 #### Add settings for gitbook
 
-* Add file: book.json
+* Add file: _**book.json**_
 * Below is simple settings for gitbook
 
 ```
@@ -100,7 +100,7 @@ npm install gitbook-plugin-header
   @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700);
   ```
 
-  * Set font for body tag
+  * Set font for body tag: 
 
   ```
   $open-sans: 'Open Sans', sans-serif;
