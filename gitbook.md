@@ -46,7 +46,7 @@ gitbook build
 }
 ```
 
-#### Add plugins
+#### Add plugins and custom layout
 
 * You can add  plugin via npm 
 * First, you have to install NodeJs to manage node packages
