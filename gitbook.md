@@ -61,13 +61,13 @@ npm install gitbook-plugin-header
 * Add simple html code for header section
 
 ```
-<header>
+<div class='header'>
    <div class="container">
        <button class="btn btn-primary">Click me</button>
         <img src="http://www.developerdrive.com/wp-content/themes/dd_v/css-images/logon.png" alt="Avatar" /> 
         <h2>Research document - @tamle</h2>
    </div>
-</header>
+</div>
 ```
 
 * Add setting for gitbook:
