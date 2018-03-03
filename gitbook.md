@@ -1,4 +1,6 @@
-# CREATE SIMPLE DOCUMENT WITH GITBOOK 
+# CREATE SIMPLE DOCUMENT WITH GITBOOK
+
+_**GITBOOK **is the best tool to create your documentation as I use it for write document here. I will let you know how to create document from scratch._
 
 #### INIT PROJECT
 
@@ -59,7 +61,6 @@ npm install gitbook-plugin-header
 * Add simple html code for header section
 
 ```
-
 <header>
    <div class="container">
        <button class="btn btn-primary">Click me</button>
@@ -67,7 +68,6 @@ npm install gitbook-plugin-header
         <h2>Research document - @tamle</h2>
    </div>
 </header>
- 
 ```
 
 * Add setting for gitbook:
@@ -93,6 +93,7 @@ npm install gitbook-plugin-header
 * Create file website.scss under sass css, and config Prepos to build sass file into styles/website.css file
 * Write some scss code to design your document page
 * **Custom font face:**
+
   * Import font:
 
   ```
@@ -117,6 +118,4 @@ npm install gitbook-plugin-header
 * Finally, custom page will be shown like image below:
 
 ![](https://i.imgur.com/afiSSiX.png)
-
-
 

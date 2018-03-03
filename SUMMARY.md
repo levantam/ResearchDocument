@@ -5,6 +5,6 @@
   * ReactJS
   * React - Redux
   * [React with Redux-Saga](front-end/react-with-redux-saga.md)
-* OTHER
+* [OTHER](other.md)
   * [Gitbook](gitbook.md)
 
