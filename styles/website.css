@@ -7,6 +7,7 @@ height: 70px;
 background: green;
 color: white;
 }
+.book-header{display: none;}
 .page-inner{
 max-width: 100%;
 }
