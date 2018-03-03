@@ -16,3 +16,7 @@ background: #24292E;
 .book-search-input{
 background: #24292E;
 }
+.book-search-input input{
+background: white;
+
+}
