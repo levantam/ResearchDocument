@@ -1,3 +1,7 @@
+.book{
+width: 80%;
+margin: 0 auto;
+}
 header{
 height: 70px;
 background: green;
@@ -5,4 +9,10 @@ color: white;
 }
 .page-inner{
 max-width: 100%;
+}
+.book-summary{
+background: #24292E;
+}
+.book-search-input{
+background: #24292E;
 }
