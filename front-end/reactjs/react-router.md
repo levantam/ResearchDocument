@@ -187,5 +187,17 @@ import { Prompt } from "react-router-dom";
     }
     export default RedirectSection;
 
+### Ambiguous matches
+Khong ro rang
+
+```
+<Switch>
+        <Route path="/about" component={About} />
+        <Route path="/company" component={Company} />
+        <Route path="/:user" component={User} />
+      </Switch>
+```
+
+
 
 
