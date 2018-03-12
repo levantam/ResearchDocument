@@ -45,6 +45,8 @@ npm serve
 >   * \(click\)="selectedUser\(user\)"
 > * **Data model**
 >   * \[\(ngModel\)\] = "modelABC.name"
+> * Binding data from parent to children
+>   * &lt;user-detail \[seletedUser\] = "selectedUser" /&gt;
 
 * _Set data models for a component:_
 
@@ -73,7 +75,11 @@ onSelectUser(selectedUser: User): void {
   >
 ```
 
+* Binding data from parent to children
 
+```
+<user-detail [selectedUser] ="selectedUser" />
+```
 
 
 
