@@ -81,5 +81,39 @@ onSelectUser(selectedUser: User): void {
 <user-detail [selectedUser] ="selectedUser" />
 ```
 
+---
+
+## Service
+
+* Create new service
+
+```
+ng g service service-name
+```
+
+* Create new function called: getUsers\(\) returns list of user
+* Inject above Service to Component via constructor method:
+
+```
+constructor(private userService: UserService) {
+  }
+```
+
+* Add Provider into app.module.ts \[IMPORTANT\]
+
+```
+providers: [UserService],
+```
+
+* Call service in component
+
+```
+ngOnInit(): void {
+    this.userService.getUser();
+  }
+```
+
+
+
 
 
