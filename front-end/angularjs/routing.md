@@ -1,7 +1,7 @@
 # Router
 
 * Using Angular CLI to create routers for application
-  > --flat: put file in src/app folder
+  > --flat: put file in src/app folder  
   > --module=app: tells the CLI to register it in the imports array of the AppModule
 
 ```
@@ -33,7 +33,6 @@ const routes: Routes = [
   .......
 })
 export class AppRoutingModule { }
-
 ```
 
 * Template:
@@ -66,7 +65,6 @@ import { AppRoutingModule } from './app-routing.module';
   ......
 })
 export class AppModule { }
-
 ```
 
 

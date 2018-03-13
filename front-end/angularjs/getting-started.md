@@ -113,7 +113,43 @@ ngOnInit(): void {
   }
 ```
 
+---
 
+# Call parent's function from child components
+
+* Parent 
+  * Component 
+
+  ```
+  onSelectUser(user: GithubUser) {
+      this.selectedUser = user;
+    }
+  ```
+
+  * View
+
+  ```
+  <app-user-list  (onSelectUser)="onSelectUser($event)" ></app-user-list>
+  ```
+
+* Children
+  * Component
+
+  ```
+  @Output() onSelectUser = new EventEmitter<GithubUser>();
+
+  handleSelectUser(user: GithubUser): void {
+      this.onSelectUser.emit(user);
+    }
+  ```
+
+  * View
+
+```
+<a ...(click)="handleSelectUser(user)">
+          ....
+</a>
+```
 
 
 

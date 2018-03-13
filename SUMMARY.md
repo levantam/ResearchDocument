@@ -7,8 +7,8 @@
   * [AngularJS](front-end/angularjs.md)
     * [Getting started](front-end/angularjs/getting-started.md)
     * [Routing](front-end/angularjs/routing.md)
+    * [Service](front-end/angularjs/service.md)
     * [Angular CLI](front-end/angularjs/angular-cli.md)
-    * Service
   * [React - Redux](front-end/react-redux.md)
   * [React with Redux-Saga](front-end/react-with-redux-saga.md)
   * [ES6](front-end/es6.md)
