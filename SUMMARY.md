@@ -14,9 +14,11 @@
   * [ES6](front-end/es6.md)
   * [CSS-Element-Queries](front-end/es6/css-element-queries.md)
   * [Fake API Server With Json Server](front-end/fake-api-server-with-json-server.md)
+  * [Angular - PrimeNG](front-end/angular-primeng.md)
 * [OTHER](other.md)
   * [Gitbook](gitbook.md)
   * [Gitflow](gitflow.md)
+  * [Node.js ES6](nodejs-es6.md)
 
 ## TUTORIALS
 
