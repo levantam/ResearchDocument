@@ -212,10 +212,9 @@ MongoDB
     >
     > * run npm run start to run application
 
-* 
-#### Create schema for a table in MongoDB
-
+* #### Create schema for a table in MongoDB
 * Create file: models/FoodModel.js
+
 * Content:
 
 ```
@@ -251,26 +250,26 @@ module.exports = mongoose.model('Food', foodSchema);
 * Step 1: Create schema for data \(view example above\)
 * Step 2:  In **routes/index.js, **create new function:
 
-    let Food = require('../models/FoodModel');
+  let Food = require\('../models/FoodModel'\);
 
-    router.post('/insert_new_food', (request, response, next) => {
-      //response.end('Post insert new food')
-      var newFood = new Food({
-        name: request.body.name,
-        foodDescription: request.body.foodDescription
-      });
-      newFood.save((error) => {
-        if(error){
-          resonse.json({
-            result: "failed",
-            data: {},
-            message: `Error: ${error}`
-          });
-        }else{
-          resonse.json({
-            result: "ok",
-            data: {
-              name: request.body.name,
+  router.post\('/insert\_new\_food', \(request, response, next\) =&gt; {  
+      //response.end\('Post insert new food'\)  
+      var newFood = new Food\({  
+        name: request.body.name,  
+        foodDescription: request.body.foodDescription  
+      }\);  
+      newFood.save\(\(error\) =&gt; {  
+        if\(error\){  
+          resonse.json\({  
+            result: "failed",  
+            data: {},  
+            message: `Error: ${error}`  
+          }\);  
+        }else{  
+          resonse.json\({  
+            result: "ok",  
+            data: {  
+              name: request.body.name,  
               foodDescription: request.body.foodDescription,
 
             },
@@ -278,7 +277,8 @@ module.exports = mongoose.model('Food', foodSchema);
           });
         }
       })
-    });
+
+  }\);
 
 * Use Postman posting a request to server
 
@@ -289,6 +289,54 @@ module.exports = mongoose.model('Food', foodSchema);
   * **Use mymongodb**
   * **db.food.find\(\)**
   * =&gt; All data of food table will be shown in cmd 
+
+##### Example: Get all data of a table from database:
+
+* In file router/index.js:
+
+    router.get('/list_all_foods', (request, response, next) => {
+      Food.find({}).limit(100).sort({name: 1}).select({name: 1, foodDescription: 1, created_date: 1, status: 1}).exec((err, foods) => {
+          if(err){
+            resonse.json({
+                result: "failed",
+                data: {},
+                message: `Error: ${error}`
+              });
+          }else{
+            response.json({
+                result: "ok",
+                data: foods,
+                message: `Command successfully`
+              });
+          }
+      })
+    });
+
+* Navigate to localhost:3000/list\_all\_foods to get all data
+
+##### Example: Get detail of food based on food id:
+
+* Create new router
+
+    router.get('/detail', (request, response, next) => {
+        Food.findById(require('mongoose').Types.ObjectId(request.query.id), (err, food) => {
+            if (err) {
+                resonse.json({
+                    result: "failed",
+                    data: {},
+                    message: `Error: ${error}`
+                });
+            } else {
+                response.json({
+                    result: "ok",
+                    data: food,
+                    message: `Command successfully`
+                });
+            }
+        });
+    });
+
+* Navigate to: **http://localhost:3000/detail?id=5aab733e64bdc90a409b4b19**
 
 
 
