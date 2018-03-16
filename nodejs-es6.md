@@ -159,8 +159,6 @@ const EventEmitter = require('events');
 
 ..... backup again
 
-
-
 ---
 
 MongoDB
@@ -171,8 +169,47 @@ MongoDB
 * Run **mongod **to run server
 * Open MongoDB compass to check Is mongo running?
 
-* Or run **mongo** on command line to check
-  * 
+* Or run **mongo** on command line to check it's working
 
+#### Create account:
+
+* Run **mongo**
+* Type **use databaseName**
+* Type: db.createUser\({name: 'tamle', pwd: 'tamle', rules: \['readWrite', 'dbAdmin', 'dbOwner'\]}\) to create user login
+
+#### Connect database in Express application
+
+* Connect to application using mongoose
+  * App.js
+
+  ```
+  var mongoose = require('mongoose');
+  let options = {
+    db: {
+      native_parser: true
+    },
+    server: {
+      poolSize: 5
+    },
+    user: "tamle",
+    pass: "tamle"
+  };
+  mongoose.Promise = global.Promise;
+  mongoose.connect('mongodb://localhost:27017/mymongodb', options).then(
+    () => {
+      console.log('connect db successfully')
+    },
+    err => {
+      console.log('connect db failed: ' + err)
+    }
+  );
+  ```
+
+  * > * Run command mongod first in another command
+    >
+    > * mymongodb is db name
+    > * run npm run start to run application
+
+* 
 
 
