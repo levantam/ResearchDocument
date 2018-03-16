@@ -24,17 +24,15 @@ node index.js
       return width * height;
   }
   exports.circumference = (width, height) => 2 * (width + height);
-
   ```
-
 * Import vào index.js để sử dụng
 
-    const rectangleFunction = require('./Shape/Retangle');
+  const rectangleFunction = require\('./Shape/Retangle'\);
 
-    let width = 10; 
-    let height = 15;
-    console.log(`Chu vi hinh chu nhat (width: ${width}, height: ${height}) = ${rectangleFunction.circumference(width, height)} `);
-    console.log(`Dien tich hinh chu nhat (width: ${width}, height: ${height}) = ${rectangleFunction.area(width, height)} `);
+  let width = 10;   
+    let height = 15;  
+    console.log\(`Chu vi hinh chu nhat (width: ${width}, height: ${height}) = ${rectangleFunction.circumference(width, height)}`\);  
+    console.log\(`Dien tich hinh chu nhat (width: ${width}, height: ${height}) = ${rectangleFunction.area(width, height)}`\);
 
 ---
 
@@ -56,7 +54,6 @@ const server = http.createServer((request, response) => {
     response.write('This is response from server');
     response.end();
 }).listen(port);
-
 ```
 
 * Server will return text: _**This is response from server**'_ when navigating to **localhost:3001**
@@ -67,14 +64,15 @@ const server = http.createServer((request, response) => {
 
 * Is a compiler of nodejs, for compiling node js application
 * Install:
+
   * ```
     npm install babel-cli --save-dev
     ```
 
 * Install plugin for babel
+
   * ```
     npm install --save-dev babel-preset-es2015 babel-preset-stage-2
-
     ```
 
 ```
@@ -137,8 +135,6 @@ const fs = require('fs');
 exports.createNewFile = (fileName) => {
     const file = fs.openSync(fileName, 'w');
 }
-
-
 ```
 
 * Write file
