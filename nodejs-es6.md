@@ -29,7 +29,7 @@ node index.js
 
   const rectangleFunction = require\('./Shape/Retangle'\);
 
-  let width = 10;   
+  let width = 10;  
     let height = 15;  
     console.log\(`Chu vi hinh chu nhat (width: ${width}, height: ${height}) = ${rectangleFunction.circumference(width, height)}`\);  
     console.log\(`Dien tich hinh chu nhat (width: ${width}, height: ${height}) = ${rectangleFunction.area(width, height)}`\);
@@ -154,6 +154,25 @@ const EventEmitter = require('events');
 ```
 
 ```
+
+---
+
+..... backup again
+
+
+
+---
+
+MongoDB
+
+* Install mongoDB via .msi file
+* Create directory: C:/data/db
+* Add MongoDB to environment variables \(C:\Program Files\MongoDB\Server\3.6\bin\)
+* Run **mongod **to run server
+* Open MongoDB compass to check Is mongo running?
+
+* Or run **mongo** on command line to check
+  * 
 
 
 
