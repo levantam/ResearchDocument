@@ -294,23 +294,23 @@ module.exports = mongoose.model('Food', foodSchema);
 
 * In file router/index.js:
 
-    router.get('/list_all_foods', (request, response, next) => {
-      Food.find({}).limit(100).sort({name: 1}).select({name: 1, foodDescription: 1, created_date: 1, status: 1}).exec((err, foods) => {
-          if(err){
-            resonse.json({
-                result: "failed",
-                data: {},
-                message: `Error: ${error}`
-              });
-          }else{
-            response.json({
-                result: "ok",
-                data: foods,
-                message: `Command successfully`
-              });
-          }
-      })
-    });
+  `router.get('/list_all_foods', (request, response, next) => {  
+      Food.find({}).limit(100).sort({name: 1}).select({name: 1, foodDescription: 1, created_date: 1, status: 1}).exec((err, foods) => {  
+          if(err){  
+            resonse.json({  
+                result: "failed",  
+                data: {},  
+                message: Error: ${error}  
+              });  
+          }else{  
+            response.json({  
+                result: "ok",  
+                data: foods,  
+                message: Command successfully  
+              });  
+          }  
+      })  
+    });`
 
 * Navigate to localhost:3000/list\_all\_foods to get all data
 
@@ -318,25 +318,25 @@ module.exports = mongoose.model('Food', foodSchema);
 
 * Create new router
 
-    router.get('/detail', (request, response, next) => {
-        Food.findById(require('mongoose').Types.ObjectId(request.query.id), (err, food) => {
-            if (err) {
-                resonse.json({
-                    result: "failed",
-                    data: {},
-                    message: `Error: ${error}`
-                });
-            } else {
-                response.json({
-                    result: "ok",
-                    data: food,
-                    message: `Command successfully`
-                });
-            }
-        });
-    });
+  `router.get('/detail', (request, response, next) => {  
+        Food.findById(require('mongoose').Types.ObjectId(request.query.id), (err, food) => {  
+            if (err) {  
+                resonse.json({  
+                    result: "failed",  
+                    data: {},  
+                    message: Error: ${error}  
+                });  
+            } else {  
+                response.json({  
+                    result: "ok",  
+                    data: food,  
+                    message: Command successfully  
+                });  
+            }  
+        });  
+    });`
 
-* Navigate to: **http://localhost:3000/detail?id=5aab733e64bdc90a409b4b19**
+* Navigate to: [http://localhost:3000/detail?id=5aab733e64bdc90a409b4b19](http://localhost:3000/detail?id=5aab733e64bdc90a409b4b19)
 
 
 
