@@ -180,6 +180,7 @@ MongoDB
 #### Connect database in Express application
 
 * Connect to application using mongoose
+
   * App.js
 
   ```
@@ -208,8 +209,86 @@ MongoDB
   * > * Run command mongod first in another command
     >
     > * mymongodb is db name
+    >
     > * run npm run start to run application
 
 * 
+#### Create schema for a table in MongoDB
+
+* Create file: models/FoodModel.js
+* Content:
+
+```
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
+var foodSchema = new Schema({
+    name: {
+        type: String, 
+        required: true
+    },
+    foodDescription: {
+        type: String,
+        default: ""
+    },
+    createdDate: {
+        type: Date,
+        default: Date.now
+    },
+    status: {
+        type: [{type: String, enum: ['available', 'unavailable']}],
+        default: ['available']
+    }
+});
+foodSchema.path('name').set((inputString) => {
+    return inputString[0].toUpperCase() + inputString.slice(1);
+})
+module.exports = mongoose.model('Food', foodSchema);
+```
+
+##### Example: call API to create new data in MongoDB database:
+
+* Step 1: Create schema for data \(view example above\)
+* Step 2:  In **routes/index.js, **create new function:
+
+    let Food = require('../models/FoodModel');
+
+    router.post('/insert_new_food', (request, response, next) => {
+      //response.end('Post insert new food')
+      var newFood = new Food({
+        name: request.body.name,
+        foodDescription: request.body.foodDescription
+      });
+      newFood.save((error) => {
+        if(error){
+          resonse.json({
+            result: "failed",
+            data: {},
+            message: `Error: ${error}`
+          });
+        }else{
+          resonse.json({
+            result: "ok",
+            data: {
+              name: request.body.name,
+              foodDescription: request.body.foodDescription,
+
+            },
+            message: `Insert data successfully`
+          });
+        }
+      })
+    });
+
+* Use Postman posting a request to server
+
+![](/assets/post-add-food-mongodb.png)
+
+* Check Inserted data:
+  * Run cmd: **mongo**
+  * **Use mymongodb**
+  * **db.food.find\(\)**
+  * =&gt; All data of food table will be shown in cmd 
+
 
 
