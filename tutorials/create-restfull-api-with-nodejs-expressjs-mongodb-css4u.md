@@ -26,7 +26,7 @@
       },
     ```
 
-* Run 
+* Run
 
 ```
 npm run start
@@ -36,7 +36,47 @@ Navigate to [http://localhost:3000/](http://localhost:3000/) to view website
 
 ### Create schema for all entities:
 
+* We will create 4 schemas:
+  * Category
+  * Framework
+  * Item
+  * Platform
 
+  ![](/assets/css-schemas.png)
+
+* Example code for Item schema:
+
+```
+var mongoose = require('mongoose');
+
+var itemSchema = mongoose.Schema({
+    name: {
+        type: string, 
+        require: true
+    },
+    image_url:{
+        type: string,
+        require: true
+    },
+    description: {
+        type: string
+    },
+    category: {
+        type: mongoose.Types.ObjectId
+    },
+    install: {
+        type: string
+    }/*,
+    properties: {
+        type: string[]
+    },
+    events: {
+        type: string[]
+    }
+    */
+});
+module.exports = mongoose.model('Item', itemSchema);
+```
 
 
 
