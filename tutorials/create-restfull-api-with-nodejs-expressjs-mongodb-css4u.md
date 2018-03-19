@@ -1,4 +1,5 @@
 * Create new NodeJS project with ExpressJS
+
   * Install  express-generator first
   * Create new application:
 
@@ -14,7 +15,9 @@
   ```
 
 * Install extra packages:
+
   * nodemon
+
     * Change start script to use node monitor
 
     ```
@@ -22,11 +25,18 @@
         "start": "nodemon ./bin/www"
       },
     ```
+
 * Run 
 
 ```
 npm run start
 ```
 
-Navigate to http://localhost:3000/ to view website
+Navigate to [http://localhost:3000/](http://localhost:3000/) to view website
+
+### Create schema for all entities:
+
+
+
+
 
