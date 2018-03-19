@@ -179,8 +179,6 @@ start: "nodemon ./bin/www"
 
 * Install all node modules
 
-
-
 ---
 
 MongoDB
@@ -192,6 +190,8 @@ MongoDB
 * Open MongoDB compass to check Is mongo running?
 
 * Or run **mongo** on command line to check it's working
+
+* **In project, install mongodb, mongoose using npm**
 
 #### Create account:
 
@@ -316,22 +316,22 @@ module.exports = mongoose.model('Food', foodSchema);
 
 * In file router/index.js:
 
-  `router.get('/list_all_foods', (request, response, next) => {                                
-      Food.find({}).limit(100).sort({name: 1}).select({name: 1, foodDescription: 1, created_date: 1, status: 1}).exec((err, foods) => {                                
-          if(err){                                
-            resonse.json({                                
-                result: "failed",                                
-                data: {},                                
-                message: Error: ${error}                                
-              });                                
-          }else{                                
-            response.json({                                
-                result: "ok",                                
-                data: foods,                                
-                message: Command successfully                                
-              });                                
-          }                                
-      })                                
+  `router.get('/list_all_foods', (request, response, next) => {                                  
+      Food.find({}).limit(100).sort({name: 1}).select({name: 1, foodDescription: 1, created_date: 1, status: 1}).exec((err, foods) => {                                  
+          if(err){                                  
+            resonse.json({                                  
+                result: "failed",                                  
+                data: {},                                  
+                message: Error: ${error}                                  
+              });                                  
+          }else{                                  
+            response.json({                                  
+                result: "ok",                                  
+                data: foods,                                  
+                message: Command successfully                                  
+              });                                  
+          }                                  
+      })                                  
     });`
 
 * Navigate to localhost:3000/list\_all\_foods to get all data
@@ -340,22 +340,22 @@ module.exports = mongoose.model('Food', foodSchema);
 
 * Create new router
 
-  `router.get('/detail', (request, response, next) => {                                
-        Food.findById(require('mongoose').Types.ObjectId(request.query.id), (err, food) => {                                
-            if (err) {                                
-                resonse.json({                                
-                    result: "failed",                                
-                    data: {},                                
-                    message: Error: ${error}                                
-                });                                
-            } else {                                
-                response.json({                                
-                    result: "ok",                                
-                    data: food,                                
-                    message: Command successfully                                
-                });                                
-            }                                
-        });                                
+  `router.get('/detail', (request, response, next) => {                                  
+        Food.findById(require('mongoose').Types.ObjectId(request.query.id), (err, food) => {                                  
+            if (err) {                                  
+                resonse.json({                                  
+                    result: "failed",                                  
+                    data: {},                                  
+                    message: Error: ${error}                                  
+                });                                  
+            } else {                                  
+                response.json({                                  
+                    result: "ok",                                  
+                    data: food,                                  
+                    message: Command successfully                                  
+                });                                  
+            }                                  
+        });                                  
     });`
 
 * Navigate to: [http://localhost:3000/detail?id=5aab733e64bdc90a409b4b19](http://localhost:3000/detail?id=5aab733e64bdc90a409b4b19)
@@ -364,32 +364,32 @@ module.exports = mongoose.model('Food', foodSchema);
 
 * Create new router:
 
-  `router.get('/search', (request, response, next) => {                            
-        let criteria = {                            
-            name: new RegExp(request.query.name, "i") //name like '%keyword%'                            
-        }                            
-        Food.find(criteria).limit(100).sort({                            
-            name: 1                            
-        }).select({                            
-            name: 1,                            
-            foodDescription: 1,                            
-            created_date: 1,                            
-            status: 1                            
-        }).exec((err, foods) => {                            
-            if (err) {                            
-                resonse.json({                            
-                    result: "failed",                            
-                    data: {},                            
-                    message: Error: ${error}                            
-                });                            
-            } else {                            
-                response.json({                            
-                    result: "ok",                            
-                    data: foods,                            
-                    message: Command successfully                            
-                });                            
-            }                            
-        })                            
+  `router.get('/search', (request, response, next) => {                              
+        let criteria = {                              
+            name: new RegExp(request.query.name, "i") //name like '%keyword%'                              
+        }                              
+        Food.find(criteria).limit(100).sort({                              
+            name: 1                              
+        }).select({                              
+            name: 1,                              
+            foodDescription: 1,                              
+            created_date: 1,                              
+            status: 1                              
+        }).exec((err, foods) => {                              
+            if (err) {                              
+                resonse.json({                              
+                    result: "failed",                              
+                    data: {},                              
+                    message: Error: ${error}                              
+                });                              
+            } else {                              
+                response.json({                              
+                    result: "ok",                              
+                    data: foods,                              
+                    message: Command successfully                              
+                });                              
+            }                              
+        })                              
     });`
 
 * Navigate to:** **[http://localhost:3000/search?name=noodle](http://localhost:3000/search?name=noodle)
@@ -398,24 +398,24 @@ module.exports = mongoose.model('Food', foodSchema);
 
 * Create new router
 
-  `//Update data                        
-    router.put('/update_food', (request, response, next) => {                        
-        //condition                        
-        let condition = {};                        
-        //check data id is valid                        
-        if(mongoose.Types.ObjectId.isValid(request.body.id) == true){                        
-            condition._id = mongoose.Types.ObjectId(request.body.id);                        
-        }else{                        
-            //Alert error:                        
-            response.json({                        
-                result: "failed",                        
-                data: {},                        
-                message: "Please enter food id"                        
-            });                        
-            //return;                        
-        }                        
-        //set new data                        
-        let newValue= {};                        
+  `//Update data                          
+    router.put('/update_food', (request, response, next) => {                          
+        //condition                          
+        let condition = {};                          
+        //check data id is valid                          
+        if(mongoose.Types.ObjectId.isValid(request.body.id) == true){                          
+            condition._id = mongoose.Types.ObjectId(request.body.id);                          
+        }else{                          
+            //Alert error:                          
+            response.json({                          
+                result: "failed",                          
+                data: {},                          
+                message: "Please enter food id"                          
+            });                          
+            //return;                          
+        }                          
+        //set new data                          
+        let newValue= {};                          
         newValue.name = request.body.name;`
 
         //is return new data?
@@ -455,22 +455,22 @@ module.exports = mongoose.model('Food', foodSchema);
 
 * Creat new router:
 
-  `router.delete('/delete', (request, response, next) => {                
-        Food.findByIdAndRemove({_id: mongoose.Types.ObjectId(request.body.id)}, (err) => {                
-            if(err){                
-                response.json({                
-                    result: "failed",                
-                    data: {},                
-                    message: Delete failed ${err}                
-                });                
-            }else {                
-                response.json({                
-                    result: "ok",                
-                    data: {},                
-                    message: "Deleted food successfully"                
-                });                
-            }                
-        });                
+  `router.delete('/delete', (request, response, next) => {                  
+        Food.findByIdAndRemove({_id: mongoose.Types.ObjectId(request.body.id)}, (err) => {                  
+            if(err){                  
+                response.json({                  
+                    result: "failed",                  
+                    data: {},                  
+                    message: Delete failed ${err}                  
+                });                  
+            }else {                  
+                response.json({                  
+                    result: "ok",                  
+                    data: {},                  
+                    message: "Deleted food successfully"                  
+                });                  
+            }                  
+        });                  
     });`
 
 * DELETE request
@@ -544,25 +544,25 @@ npm install --save express-validator
 
 * In routers/index.js
 
-  `router.get('/test-validator', (request, response, next) => {          
-        request.checkQuery('page', '"page" must be Integer, not empty').notEmpty().isInt();          
-        request.checkQuery('limit', '"limit" must be Integer').isInt();          
-        request.getValidationResult().then((validationResult) => {          
-            if(!validationResult.isEmpty()){          
-                //failed          
-                response.json({          
-                    result: "failed",          
-                    data: validationResult.array(),          
-                    message: Error: Please check error          
-                });          
-                return;          
-            }          
-            response.json({          
-                result: "ok",          
-                data: {},          
-                message: Look good          
-            });          
-        })          
+  `router.get('/test-validator', (request, response, next) => {            
+        request.checkQuery('page', '"page" must be Integer, not empty').notEmpty().isInt();            
+        request.checkQuery('limit', '"limit" must be Integer').isInt();            
+        request.getValidationResult().then((validationResult) => {            
+            if(!validationResult.isEmpty()){            
+                //failed            
+                response.json({            
+                    result: "failed",            
+                    data: validationResult.array(),            
+                    message: Error: Please check error            
+                });            
+                return;            
+            }            
+            response.json({            
+                result: "ok",            
+                data: {},            
+                message: Look good            
+            });            
+        })            
     });`
 
 =&gt; Check data from url, if data is valid =&gt; run and return data, else, return error list

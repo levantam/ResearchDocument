@@ -80,9 +80,11 @@ module.exports = mongoose.model('Item', itemSchema);
 ```
 
 * Create new database
+
   * Using cmd, type: mongod to start dbserver
   * Open MongoDB compass community to create new data, named css4u
   * Create user for login:
+
     * Open another cmd
     * Type: mongo
     * Type: use css4u
@@ -92,6 +94,32 @@ module.exports = mongoose.model('Item', itemSchema);
     db.createUser( { user: "admin",pwd: "tamle",roles: [ "readWrite", "dbOwner", "dbAdmin"]} )
     ```
 
-* 
+* Edit App.js to connect to mongo db
+
+```
+var mongoose = require('mongoose');
+
+var app = express();
+let options = {
+  db: {
+    native_parser: true
+  },
+  server: {
+    poolSize: 5
+  },
+  user: "tamle",
+  pass: "tamle"
+};
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost:27017/css4u', options).then(
+  () => {
+    console.log('Connect MongoDB successfully')
+  },
+  err => {
+    console.log('Connect MongoDB failed: ' + err)
+  }
+);
+```
+
 
 
