@@ -25,30 +25,30 @@
 
 * Example 1:
 
-    var aPromise = new Promise((resolve, reject) => {
-        reject('this is data from resolve function');
-        resolve('this is data from resolve function');
-    });
-    aPromise.then(msg => console.log(msg), err => console.log(`Error: ${err}`));
+  var aPromise = new Promise\(\(resolve, reject\) =&gt; {  
+        reject\('this is data from resolve function'\);  
+        resolve\('this is data from resolve function'\);  
+    }\);  
+    aPromise.then\(msg =&gt; console.log\(msg\), err =&gt; console.log\(`Error: ${err}`\)\);
 
 * Create promise function:
 
-    const myFunction = (a, b) => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                let err, result;
-                if (typeof (a) != 'number' || typeof (b) != 'number') {
-                    reject('All argurement must be number');
-                } else {
-                    result = a + b;
-                    resolve(result);
-                }
-            }, 3000);
+      const myFunction = (a, b) => {
+          return new Promise((resolve, reject) => {
+              setTimeout(() => {
+                  let err, result;
+                  if (typeof (a) != 'number' || typeof (b) != 'number') {
+                      reject('All argurement must be number');
+                  } else {
+                      result = a + b;
+                      resolve(result);
+                  }
+              }, 3000);
 
-        })
+          })
 
-    }
-    myFunction(10, '2').then(data => console.log(`RESULT: ${data}`), error => console.log(error));
+      }
+      myFunction(10, '2').then(data => console.log(`RESULT: ${data}`), error => console.log(error));
 
 * 
 
