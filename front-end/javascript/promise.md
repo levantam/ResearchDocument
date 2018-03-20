@@ -162,7 +162,7 @@ addListItem();
       }
       addListItem(cbFunction);
 
-* O
+* Or 
 
 
 
