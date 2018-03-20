@@ -135,32 +135,32 @@ addListItem();
 
 * Using try, catch and callback function to handle error:
 
-    const addItem = (result) => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                reject(result);
-            }, 5000);
-        })
-    }
-    var addListItem = async (cbFunction) => {
-        try {
-            var result = await addItem(true);
-            if (result == true) {
-                result = await addItem(false);
-            }
-            cbFunction(undefined, "tamle");
-        } catch (error) {
-            cbFunction(error + '');
-        }
-    }
-    const cbFunction = (err, msg) => {
-        if (err) {
-            console.log(`ERROR: ${err}`);
-        } else {
-            console.log(`Result: ${msg}`);
-        }
-    }
-    addListItem(cbFunction);
+      const addItem = (result) => {
+          return new Promise((resolve, reject) => {
+              setTimeout(() => {
+                  reject(result);
+              }, 5000);
+          })
+      }
+      var addListItem = async (cbFunction) => {
+          try {
+              var result = await addItem(true);
+              if (result == true) {
+                  result = await addItem(false);
+              }
+              cbFunction(undefined, "tamle");
+          } catch (error) {
+              cbFunction(error + '');
+          }
+      }
+      const cbFunction = (err, msg) => {
+          if (err) {
+              console.log(`ERROR: ${err}`);
+          } else {
+              console.log(`Result: ${msg}`);
+          }
+      }
+      addListItem(cbFunction);
 
 * 
 
