@@ -100,9 +100,11 @@ Promise.all([func1(2,2), func2(1, 10)]).then(res => console.log(res), error=> co
 * Phiên bản javascript mà node hỗ trợ chưa có async await =&gt; sử dụng babel cli
 
 * Install babel cli
+
   ```
   npm install babel-cli --save-dev
   ```
+
 * Install babel-preset-2015 to compile from babel code to javascript
 
 ```
@@ -131,5 +133,35 @@ addListItem();
 //result = false
 ```
 
+* Using try, catch and callback function to handle error:
+
+    const addItem = (result) => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                reject(result);
+            }, 5000);
+        })
+    }
+    var addListItem = async (cbFunction) => {
+        try {
+            var result = await addItem(true);
+            if (result == true) {
+                result = await addItem(false);
+            }
+            cbFunction(undefined, "tamle");
+        } catch (error) {
+            cbFunction(error + '');
+        }
+    }
+    const cbFunction = (err, msg) => {
+        if (err) {
+            console.log(`ERROR: ${err}`);
+        } else {
+            console.log(`Result: ${msg}`);
+        }
+    }
+    addListItem(cbFunction);
+
+* 
 
 
