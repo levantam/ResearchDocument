@@ -164,25 +164,25 @@ addListItem();
 
 * Or using promise to handle
 
-    const addItem = (result) => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                reject(result);
-            }, 5000);
-        })
-    }
-    var addListItem = async () => {
-        try {
-            var result = await addItem(true);
-            if (result == true) {
-                result = await addItem(false);
-            }
-            return Promise.resolve("Result = true");
-        } catch (error) {
-            return Promise.reject("Error occurred");
-        }
-    }
-    addListItem().then(msg => console.log(msg), err=>console.log(`ERROR: ${err}`));
+      const addItem = (result) => {
+          return new Promise((resolve, reject) => {
+              setTimeout(() => {
+                  reject(result);
+              }, 5000);
+          })
+      }
+      var addListItem = async () => {
+          try {
+              var result = await addItem(true);
+              if (result == true) {
+                  result = await addItem(false);
+              }
+              return Promise.resolve("Result = true");
+          } catch (error) {
+              return Promise.reject("Error occurred");
+          }
+      }
+      addListItem().then(msg => console.log(msg), err=>console.log(`ERROR: ${err}`));
 
 
 
