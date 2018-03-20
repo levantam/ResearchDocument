@@ -74,6 +74,7 @@ Promise.all([func1(2,2), func2(1, 10)]).then(res => console.log(res), error=> co
 ```
 
 * All promises are success =&gt; success, else, return Error
+
   * **Error of above example will be raised in function func2**
 
 * #### RACE: 1 of promise list success =&gt; return success, else error
@@ -97,6 +98,38 @@ Promise.all([func1(2,2), func2(1, 10)]).then(res => console.log(res), error=> co
 ### Await / Async
 
 * Phiên bản javascript mà node hỗ trợ chưa có async await =&gt; sử dụng babel cli
+
+* Install babel cli
+  ```
+  npm install babel-cli --save-dev
+  ```
+* Install babel-preset-2015 to compile from babel code to javascript
+
+```
+npm install babel-preset-2015 --save-dev
+```
+
+* Then, we can use await /sync to implement asynchronous function
+
+```
+const addItem = (result) =>{
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(result);
+        }, 5000);
+    })
+}
+var addListItem = async () => {
+    var result = await addItem(true);
+    if(result == true){
+        result = await addItem(false);
+    }
+    console.log(result);
+}
+
+addListItem();
+//result = false
+```
 
 
 
