@@ -133,7 +133,7 @@ addListItem();
 //result = false
 ```
 
-* Using try, catch and callback function to handle error:
+* Using **try, catch **and **callback function** to handle error:
 
       const addItem = (result) => {
           return new Promise((resolve, reject) => {
@@ -162,7 +162,7 @@ addListItem();
       }
       addListItem(cbFunction);
 
-* Or using promise to handle
+* Or using **promise **to handle
 
       const addItem = (result) => {
           return new Promise((resolve, reject) => {
