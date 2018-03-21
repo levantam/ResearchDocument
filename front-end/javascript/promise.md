@@ -184,5 +184,51 @@ addListItem();
       }
       addListItem().then(msg => console.log(msg), err=>console.log(`ERROR: ${err}`));
 
+### Example for insert data in array list \(foreach\):
+
+    router.get(`${prefix}/init`, async (req, res, next) => {
+        let frameworks = initData.frameworks;
+        var count = 0;
+        console.log('INIT FRAMEWORK...');
+        var result = await insertInitFrameworks(frameworks).then((msg) => count = msg.length, err => console.log('INSERT DATA FAILED: ' + err));
+        if(count == 0){
+            util.handleError(res, 'Init framework failed, please try again');
+        }else{
+            util.handleResult(res, undefined, 'Init framework successfully');
+        }
+        console.log('Finish init FRAMEWORK...');
+    });
+
+
+    // General function
+    const insertFramework = (element) => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                // Insert new framework
+                let newFramework = new Framework({
+                    name: element.name,
+                    id_string: element.id_string,
+                    image_url: element.image_url,
+                    description: element.description
+                });
+                newFramework.save((error, result) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        resolve(true)
+                    }
+                });
+            }, 3000);
+        });
+    }
+    const insertInitFrameworks = (frameworks) => {
+        var allProcesses = [];
+        frameworks.forEach(element => {
+            console.log('Init: ' + element.name);
+            allProcesses.push(insertFramework(element));
+        })
+        return Promise.all(allProcesses).then((data) => Promise.resolve(data), err => Promise.reject('FAILED: ' + err));
+    }
+
 
 
