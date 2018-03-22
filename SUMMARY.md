@@ -11,6 +11,7 @@
     * [Angular CLI](front-end/angularjs/angular-cli.md)
   * [Javascript](front-end/javascript.md)
     * [promise](front-end/javascript/promise.md)
+    * [Observable](front-end/javascript/observable.md)
   * [React - Redux](front-end/react-redux.md)
   * [React with Redux-Saga](front-end/react-with-redux-saga.md)
   * [ES6](front-end/es6.md)
