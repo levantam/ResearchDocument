@@ -68,6 +68,7 @@ OBSERVABLE IN JAVASCRIPT
   ```
 
 * Example 2:
+
   * Return Observable&lt;Object&gt; and use async to wait all api success
   * Html:
 
@@ -130,7 +131,6 @@ OBSERVABLE IN JAVASCRIPT
     color: string;
     description: string;
   }
-
   ```
 
 
