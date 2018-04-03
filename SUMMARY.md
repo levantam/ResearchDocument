@@ -18,6 +18,8 @@
   * [CSS-Element-Queries](front-end/es6/css-element-queries.md)
   * [Fake API Server With Json Server](front-end/fake-api-server-with-json-server.md)
   * [Angular - PrimeNG](front-end/angular-primeng.md)
+  * [Angular 5](front-end/angular-5.md)
+  * [Lodash](front-end/lodash.md)
 * [OTHER](other.md)
   * [Gitbook](gitbook.md)
   * [Gitflow](gitflow.md)
