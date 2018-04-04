@@ -1,186 +1,142 @@
 GITHUBER
 
-
-
 Description: get data from github and show all users, detail users
-
-
 
 Steps:
 
-- Create react application with typescript
+* Create react application with typescript
 
-	create-react-app githuber --scripts-version=react-script-ts
+  create-react-app githuber --scripts-version=react-scripts-ts
 
-- Install 
+* Install
 
-	+ npm install --save-dev react-router-dom @types/react-router-dom =&gt; create all routers for project, such as: Home, About, Contact,...
+  * npm install --save-dev react-router-dom @types/react-router-dom =&gt; create all routers for project, such as: Home, About, Contact,...
 
-	+ npm install --save redux @types/redux
+  * npm install --save redux @types/redux
 
-	+ npm install --save react-redux @types/react-redux
+  * npm install --save react-redux @types/react-redux
 
+* Create template for website, menu 
 
+* Create reducers:
 
-- Create template for website, menu 
+  * Create users-reducer.tsx, export array users
 
+  * create index.tsx,
 
+    * Import all reducers into index file
 
-- Create reducers:
+    * import combineReducers from redux
 
-	+ Create users-reducer.tsx, export array users
+      const allReducers = combineReducers\({
 
-	+ create index.tsx, 
+      users: UserReducer
 
-		- Import all reducers into index file
+      }\);
 
-		- import combineReducers from redux
+      export default allReducers;
 
-		const allReducers = combineReducers\({
+    =&gt; In file index.tsx, import reducers/index file: import {allReducers} from './reducers';
 
-			users: UserReducer
+    const store = createStore\(allReducers\);
 
-		}\);
+* Create Provider
 
-		export default allReducers;
+  * In file index.tsx \(root directory\)
 
-	=&gt; In file index.tsx, import reducers/index file: import {allReducers} from './reducers';
+    * Import Provider
 
-	const store = createStore\(allReducers\);
+    * render:
 
-- Create Provider
+      &lt;Provider store={store}&gt;
 
-	+ In file index.tsx \(root directory\)
+      ```
+        &lt;App /&gt;
+      ```
 
-		- Import Provider
+      &lt;/Provider&gt;
 
-		- render:
+* Create Container
 
-			&lt;Provider store={store}&gt;
+  * Like a component
 
-				&lt;App /&gt;
+  * Create file user-list.tsx
 
-			&lt;/Provider&gt;
+    * Class UserList
 
-- Create Container
+    * Create function
 
-	+ Like a component
+      function mapStateToProps\(state: any\) {
 
-	+ Create file user-list.tsx
+      ```
+        return {
 
-		+ Class UserList
+            users: state.users
 
-		+ Create function
+        }
+      ```
 
-			function mapStateToProps\(state: any\) {
+      }
 
-				return {
+    * import {connect} from 'react-redux'
 
-					users: state.users
+      let UserContainer = connect\(mapStateToProps\)\(UserList\);
 
-				}
+      export default UserContainer;
 
-			}
+  * Import this container \(UserContainer\) in to page you want to mount
 
-		+ import {connect} from 'react-redux'
+* Actions
 
-		let UserContainer = connect\(mapStateToProps\)\(UserList\);
+  * create file action-types.tsx
 
-		export default UserContainer;
+    export const SELECT\_USER = "SELECT\_USER";
 
-	+ Import this container \(UserContainer\) in to page you want to mount
+  * create index.tsx
 
-- Actions
+    * import action-types
 
-	+ create file action-types.tsx
+    * define a action
 
-		export const SELECT\_USER = "SELECT\_USER";
+      export const selectUser = \(user: any\) =&gt; {
 
-	+ create index.tsx
+      ```
+        console.log\("User click action"\);
 
-		- import action-types
+        return {
 
-		- define a action
+            type: SELECT\_USER,
 
-			export const selectUser = \(user: any\) =&gt; {
+            payload: user
 
-				console.log\("User click action"\);
+        }
+      ```
 
-				return {
+      };
 
-					type: SELECT\_USER,
+  * In container \(user-list\)
 
-					payload: user
+    * import
 
-				}
+      import { bindActionCreators } from "redux";
 
-			};
+      import { selectUser } from "../actions";
 
-	+ In container \(user-list\)
+    * Create function
 
-		- import
+      function mapDispatchToProps\(dispatch: any\){
 
-			import { bindActionCreators } from "redux";
+      ```
+        return bindActionCreators\({selectUser: selectUser}, dispatch\);
+      ```
 
-			import { selectUser } from "../actions";
+      }
 
-		- Create function 
+    * Add more code
 
-			function mapDispatchToProps\(dispatch: any\){
+      let UserContainer = connect\(mapStateToProps, mapDispatchToProps\)\(UserList\);
 
-				return bindActionCreators\({selectUser: selectUser}, dispatch\);
+      =&gt; For now, you can call action via props: this.props.selectUser\(user\);
 
-			}
 
-		- Add more code
-
-			let UserContainer = connect\(mapStateToProps, mapDispatchToProps\)\(UserList\);
-
-		=&gt; For now, you can call action via props: this.props.selectUser\(user\);
-
-
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
 
