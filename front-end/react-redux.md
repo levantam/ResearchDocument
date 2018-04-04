@@ -6,21 +6,21 @@ Steps:
 
 * Create react application with typescript
 
-  create-react-app githuber --scripts-version=react-scripts-ts
+  **create-react-app githuber --scripts-version=react-scripts-ts**
 
 * Install
 
-  * npm install --save-dev react-router-dom @types/react-router-dom =&gt; create all routers for project, such as: Home, About, Contact,...
+  * **npm install --save-dev react-router-dom @types/react-router-dom** =&gt; create all routers for project, such as: Home, About, Contact,...
 
-  * npm install --save redux @types/redux
+  * **npm install --save redux @types/redux**
 
-  * npm install --save react-redux @types/react-redux
+  * **npm install --save react-redux @types/react-redux**
 
-* Create template for website, menu 
+* Create template for website, menu
 
 * Create reducers:
 
-  * Create users-reducer.tsx, export array users
+  * npmCreate **users-reducer.tsx**, export array users
 
   * create index.tsx,
 
