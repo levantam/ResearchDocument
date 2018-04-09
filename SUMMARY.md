@@ -20,6 +20,7 @@
   * [Angular - PrimeNG](front-end/angular-primeng.md)
   * [Angular 5](front-end/angular-5.md)
   * [Lodash](front-end/lodash.md)
+  * [Udemy Courses - Angular](front-end/udemy-courses-angular.md)
 * [OTHER](other.md)
   * [Gitbook](gitbook.md)
   * [Gitflow](gitflow.md)
