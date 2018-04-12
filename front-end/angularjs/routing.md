@@ -81,5 +81,9 @@ export class AppModule { }
 * In router list, **define child array** and define all children
 * In parent component, add new section: **&lt;router-outlet&gt;**
 
+#### Not found page:
+
+* Path = "\*\*"
+
 
 
