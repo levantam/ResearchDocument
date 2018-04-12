@@ -67,9 +67,14 @@ import { AppRoutingModule } from './app-routing.module';
 export class AppModule { }
 ```
 
-## Path
+## Navigate to other routes
 
-
+* Inject **ActivatedRoute **in constructor
+* this.route.navigate\(\[param1\], queryparam, fragment\);
+  * param1: 'link', 'id','sdfdsf',.... For example: Link to server/1/edit =&gt; \['server', 1, ;'edit'\]
+  * query params: ?name=abc =&gt; queryparams: {name: 'abc'}
+  * fragment: \#loading =&gt; fragment:'loading'
+  * 
 
 
 
