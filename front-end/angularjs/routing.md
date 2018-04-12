@@ -83,7 +83,14 @@ export class AppModule { }
 
 #### Not found page:
 
-* Path = "\*\*"
+* Path = "\*\*", redirectTo: notfound
+
+#### Guards in Angular JS
+
+* Using canActive
+
+* Add new service: auth-guard.service.ts
+  * 
 
 
 
