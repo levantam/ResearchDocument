@@ -76,5 +76,9 @@ export class AppModule { }
   * fragment: \#loading =&gt; fragment:'loading'
   * 
 
+### Nested Route
+
+
+
 
 
