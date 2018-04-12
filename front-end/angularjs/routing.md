@@ -85,12 +85,15 @@ export class AppModule { }
 
 * Path = "\*\*", redirectTo: notfound
 
-#### Guards in Angular JS
+#### canActivate Guards in Angular JS: lecture 135
 
 * Using canActive
 
 * Add new service: auth-guard.service.ts
-  * 
 
+#### Send Data between component:
+
+* using **data **in **route**
+* 
 
 
