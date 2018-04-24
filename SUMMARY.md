@@ -19,6 +19,7 @@
   * [Fake API Server With Json Server](front-end/fake-api-server-with-json-server.md)
   * [Angular - PrimeNG](front-end/angular-primeng.md)
   * [Angular 5](front-end/angular-5.md)
+  * [Angular - ngrx - State management](front-end/angular-ngrx-state-management.md)
   * [Lodash](front-end/lodash.md)
   * [Udemy Courses - Angular](front-end/udemy-courses-angular.md)
 * [OTHER](other.md)
