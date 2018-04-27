@@ -84,25 +84,28 @@
     import 'rxjs/add/operator/switchMap';  
     import 'rxjs/add/operator/map';
 
-    import * as UserActions from '../actions/users.actions';
-    import { UserService } from '../services/user.service';
-    import { User } from '../models/user.model';
+    import \* as UserActions from '../actions/users.actions';  
+    import { UserService } from '../services/user.service';  
+    import { User } from '../models/user.model';  
     import { Observable } from 'rxjs/Observable';
 
-    @Injectable()
-    export class UserEffects {
-        constructor(
-            private actions$: Actions,
-            private userService: UserService
-        ) {}
-
-        @Effect() LoadUser$ = this.actions$.ofType(UserActions.LOAD_USER)
-            .switchMap((action) => this.userService.getUser().map((users: User[]) => new UserActions.LoadUserSuccess(users)));
-    }
+    @Injectable\(\)  
+    export class UserEffects {  
+        constructor\(  
+            private actions$: Actions,  
+            private userService: UserService  
+        \) {}
 
     ```
+    @Effect() LoadUser$ = this.actions$.ofType(UserActions.LOAD_USER)
+        .switchMap((action) => this.userService.getUser().map((users: User[]) => new UserActions.LoadUserSuccess(users)));
+    ```
 
+    }
+
+    \`\`\`
 * Service will return **Observable&lt;User\[\]&gt; object**
+
   * ```
     getUser() {
         const url = 'https://api.github.com/users?since=1&access_token=a87b8ff614b96bd43edb26f9ba056abf89e6decc';
@@ -122,12 +125,10 @@
       export interface AppState {
           readonly users: User[];
       }
-
       ```
-
 * Define **StoreModule **and **EffectModule **in **app.module.ts**
-  * ```
 
+  * ```
     const store = {
       users: UserReducer
     };
@@ -144,6 +145,25 @@
     ```
 
 * ## Use in component
+
+  * ```
+    export class UserComponent implements OnInit {
+      users: Observable<User[]>;
+
+    //Inject  store
+      constructor(private store: Store<AppState>) {
+        this.users = this.store.select('users');
+        this.store.dispatch(new userActions.LoadUser()); // dispatch load user
+      }
+
+      ngOnInit() {
+      }
+
+    }
+
+    ```
+
+
 
 
 
