@@ -72,19 +72,17 @@
         }
     }
     ```
-
-* ## Effects: 
+* ## Effects:
 
   * To dispatch action with other actions such as: services,...
 
   * Create folder **effects **and file: **users.effect.ts**
 
-  * ```
-    import { Injectable } from '@angular/core';
-    import {Actions, Effect} from '@ngrx/effects';
-    import 'rxjs/add/operator/switchMap';
+  * \`\`\`  
+    import { Injectable } from '@angular/core';  
+    import {Actions, Effect} from '@ngrx/effects';  
+    import 'rxjs/add/operator/switchMap';  
     import 'rxjs/add/operator/map';
-
 
     import * as UserActions from '../actions/users.actions';
     import { UserService } from '../services/user.service';
@@ -103,6 +101,49 @@
     }
 
     ```
+
+* Service will return **Observable&lt;User\[\]&gt; object**
+  * ```
+    getUser() {
+        const url = 'https://api.github.com/users?since=1&access_token=a87b8ff614b96bd43edb26f9ba056abf89e6decc';
+        return this.http.get(url).map(res => res.json());
+      }
+    ```
+
+* ## App State
+
+  * Contains all state of application:
+
+  * Create a file: **app.state.ts**
+
+    * ```
+      import { User } from './models/user.model';
+
+      export interface AppState {
+          readonly users: User[];
+      }
+
+      ```
+
+* Define **StoreModule **and **EffectModule **in **app.module.ts**
+  * ```
+
+    const store = {
+      users: UserReducer
+    };
+
+    @NgModule({
+      ........
+      imports: [
+        ....
+        StoreModule.forRoot(store),
+        EffectsModule.forRoot([UserEffects])
+      ],
+      ......
+    })
+    ```
+
+* ## Use in component
 
 
 
