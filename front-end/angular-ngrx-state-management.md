@@ -1,5 +1,7 @@
 # NGRX - STATE MANAGE WITH REDUX PATTERN IN ANGULAR JS APPLICATION
 
+* Link source code kit: **kit-ngrx**
+
 * Create new angular application with angular CLI
 * Install dependency packages:
   * npm install **@ngrx/store @ngrx/effects** **@ngrx/store/devtools** --save
@@ -160,10 +162,7 @@
       }
 
     }
-
     ```
-
-
 
 
 
