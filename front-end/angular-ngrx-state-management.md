@@ -47,14 +47,11 @@
         constructor(public index: number, public payload: User) { }
     }
     export type Action = LoadUser | LoadUserSuccess | AddUser | DeleteUser | EditUser;
-
     ```
-
 * ## Reducer:
 
   * Create **reducers **folder and file: **users.reducer.ts**
   * ```
-
     import * as UserActions from '../actions/users.actions';
     import { User } from '../models/user.model';
 
@@ -74,6 +71,37 @@
                 return state;
         }
     }
+    ```
+
+* ## Effects: 
+
+  * To dispatch action with other actions such as: services,...
+
+  * Create folder **effects **and file: **users.effect.ts**
+
+  * ```
+    import { Injectable } from '@angular/core';
+    import {Actions, Effect} from '@ngrx/effects';
+    import 'rxjs/add/operator/switchMap';
+    import 'rxjs/add/operator/map';
+
+
+    import * as UserActions from '../actions/users.actions';
+    import { UserService } from '../services/user.service';
+    import { User } from '../models/user.model';
+    import { Observable } from 'rxjs/Observable';
+
+    @Injectable()
+    export class UserEffects {
+        constructor(
+            private actions$: Actions,
+            private userService: UserService
+        ) {}
+
+        @Effect() LoadUser$ = this.actions$.ofType(UserActions.LOAD_USER)
+            .switchMap((action) => this.userService.getUser().map((users: User[]) => new UserActions.LoadUserSuccess(users)));
+    }
+
     ```
 
 
