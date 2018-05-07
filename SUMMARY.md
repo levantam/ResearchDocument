@@ -22,6 +22,7 @@
   * [Angular - ngrx - State management](front-end/angular-ngrx-state-management.md)
   * [Lodash](front-end/lodash.md)
   * [Udemy Courses - Angular](front-end/udemy-courses-angular.md)
+  * [BEM Css](front-end/bem-css.md)
 * [OTHER](other.md)
   * [Gitbook](gitbook.md)
   * [Gitflow](gitflow.md)
