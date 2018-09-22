@@ -20,7 +20,7 @@ Steps:
 
 * Create reducers:
 
-  * npmCreate **users-reducer.tsx**, export array users
+  * Create **users-reducer.tsx**, export array users
 
   * create index.tsx,
 
